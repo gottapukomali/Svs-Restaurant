@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - SVS Restaurant</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="script.js"></script>
+    <style>
+        .menu {
+            padding: 120px 5% 50px;
+            min-height: 100vh;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .menu h2 {
+            text-align: center;
+            font-size: 3.5em;
+            color: #fff;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(231, 76, 60, 0.3);
+            position: relative;
+        }
+
+        .menu h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: #e74c3c;
+            border-radius: 2px;
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(231, 76, 60, 0.3);
+            border-color: #e74c3c;
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        .card h3 {
+            color: #e74c3c;
+            font-size: 1.8em;
+            margin: 20px;
+            font-weight: 600;
+        }
+
+        .card p {
+            color: #fff;
+            padding: 0 20px;
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .card button {
+            width: calc(100% - 40px);
+            margin: 20px;
+            padding: 15px;
+            background: #e74c3c;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 1.1em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .card button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .card button:hover {
+            background: #c0392b;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .menu {
+                padding: 100px 20px 40px;
+            }
+
+            .menu h2 {
+                font-size: 2.5em;
+            }
+
+            .menu-container {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <video autoplay loop muted class="back-video">
+            <source src="https://cdn.pixabay.com/video/2023/10/10/vid_20231010_135736_394.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <header>
+        <nav>
+            <div class="navbar-container">
+                <div class="logo">SVS Restaurant</div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html" class="active">Menu</a></li>
+                    <li><a href="contact.html">Login/Register</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="menu" class="menu">
+        <h2>Our Menu</h2>
+
+        <div class="menu-container">
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzcPyCUa6VnMxqF7fnruzbpAR6_uZXMEqVTqaRyjr4apoqBgGNXM9r0Yc&s" alt="Hyderabadi Biryani">
+                <h3>Hyderabadi Dum Biryani</h3>
+                <p>Aromatic and flavorful biryani with rich spices.</p>
+                <button>Buy Now</button>
+            </div>
+
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXaERhpaoIpFvvKJQQ6CH2_6pM_Z-W-kluZA&s" alt="Mutton Curry">
+                <h3>Mutton Curry</h3>
+                <p>Rich and spicy mutton curry slow-cooked to perfection.</p>
+                <button>Buy Now</button>
+            </div>
+
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRmyeroqMd2ZcxiregFnvL8stfhCdjT_Pt_g&s" alt="Fish Fry">
+                <h3>Fish Fry</h3>
+                <p>Spiced and crispy fried fish served with chutney.</p>
+                <button>Buy Now</button>
+            </div>
+
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT85iSF9VSvP3JREyzT2L40ZuxDcpcqegj5IQ&s" alt="Paneer Butter Masala">
+                <h3>Paneer Butter Masala</h3>
+                <p>Creamy and rich paneer cooked in buttery tomato gravy.</p>
+                <button>Buy Now</button>
+            </div>
+
+            <div class="card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3iJDAVLlUeuRiqsHOAXNUgNZTOySyn2Ufhw&s" alt="Butter Chicken">
+                <h3>Butter Chicken</h3>
+                <p>Deliciously creamy and spiced butter chicken.</p>
+                <button>Buy Now</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SVS Restaurant - Authentic Biryani & Indian Cuisine</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 5%;
+            position: relative;
+        }
+
+        .home::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.8) 100%);
+            z-index: 0;
+        }
+
+        .home-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 60px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            transform: translateY(0);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .image {
+            flex: 1;
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(231, 76, 60, 0.3), transparent);
+            z-index: 1;
+        }
+
+        .image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            transform: scale(1);
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .image:hover img {
+            transform: scale(1.1);
+        }
+
+        .text-content {
+            flex: 1;
+            color: white;
+        }
+
+        h2 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: #e74c3c;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: #e74c3c;
+            border-radius: 2px;
+        }
+
+        .tagline {
+            font-size: 1.8em;
+            color: #f1c40f;
+            margin-bottom: 30px;
+            font-weight: 300;
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards 0.5s;
+        }
+
+        .description {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards 0.8s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 30px;
+            opacity: 0;
+            animation: fadeInUp 0.8s forwards 1.1s;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 35px;
+            background: #e74c3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            border: 2px solid #e74c3c;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 60px 5%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            margin-top: -100px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .feature {
+            background: rgba(231, 76, 60, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            color: white;
+            border: 1px solid rgba(231, 76, 60, 0.3);
+            transition: all 0.3s ease;
+            flex: 1;
+            max-width: 300px;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            border-color: #e74c3c;
+            box-shadow: 0 10px 20px rgba(231, 76, 60, 0.2);
+        }
+
+        .feature i {
+            font-size: 2.5em;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        .feature h3 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        .feature p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 1024px) {
+            .home-content {
+                padding: 40px;
+                gap: 40px;
+            }
+
+            h2 {
+                font-size: 2.8em;
+            }
+
+            .tagline {
+                font-size: 1.5em;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .home-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px;
+            }
+
+            .image {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            h2::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .features {
+                flex-direction: column;
+                align-items: center;
+                margin-top: 0;
+            }
+
+            .feature {
+                width: 100%;
+                max-width: 400px;
+            }
+
+            .cta-buttons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <video autoplay loop muted class="back-video">
+            <source src="https://cdn.pixabay.com/video/2016/11/04/6266-190550868_large.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <header>
+        <nav>
+            <div class="navbar-container">
+                <div class="logo">SVS Restaurant</div>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html">Login/Register</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="home">
+        <div class="home-content">
+            <div class="image">
+                <img src="https://images.pexels.com/photos/1624487/pexels-photo-1624487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="SVS Restaurant Signature Dish">
+            </div>
+            <div class="text-content">
+                <h2>Welcome to SVS Restaurant</h2>
+                <p class="tagline">Experience the Royal Taste of Authentic Indian Cuisine</p>
+                <p class="description">
+                    Discover the rich heritage of Indian culinary arts at SVS Restaurant. Our master chefs craft each dish with passion, using traditional recipes and the finest ingredients. From our signature Hyderabadi Dum Biryani to aromatic curries, every dish tells a story of flavor and tradition.
+                </p>
+                <div class="cta-buttons">
+                    <a href="menu.html" class="cta-button">View Menu</a>
+                    <a href="contact.html" class="cta-button secondary">Reserve Table</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="feature">
+            <i class="fas fa-percent"></i>
+            <h3>Special Offers</h3>
+            <p>20% off on Family Combos</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-clock"></i>
+            <h3>Opening Hours</h3>
+            <p>Mon-Sun: 11AM - 11PM</p>
+        </div>
+        <div class="feature">
+            <i class="fas fa-truck"></i>
+            <h3>Fast Delivery</h3>
+            <p>Within 30 Minutes</p>
+        </div>
+    </section>
+
+    <script>
+        // Real-time date and time display
+        function updateDateTime() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            };
+            document.querySelector('.feature:nth-child(2) p').textContent = 
+                `${now.toLocaleDateString('en-US', options)}`;
+        }
+        
+        updateDateTime();
+        setInterval(updateDateTime, 1000);
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

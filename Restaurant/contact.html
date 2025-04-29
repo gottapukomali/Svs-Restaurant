@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/Register - SVS Restaurant</title>
+    <link rel="stylesheet" href="styles.css">
+    <script type="module" src="script.js"></script>
+    <style>
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 5%;
+        }
+
+        .auth-box {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 400px;
+            color: white;
+        }
+
+        .auth-box h2 {
+            text-align: center;
+            color: #e74c3c;
+            margin-bottom: 30px;
+        }
+
+        .auth-box input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+            color: white;
+        }
+
+        .auth-box input::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .auth-box button {
+            width: 100%;
+            padding: 12px;
+            background: #e74c3c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .auth-box button:hover {
+            background: #c0392b;
+        }
+
+        .auth-box p {
+            text-align: center;
+        }
+
+        .auth-box a {
+            color: #e74c3c;
+            text-decoration: none;
+        }
+
+        .auth-box a:hover {
+            text-decoration: underline;
+        }
+
+        #signup-box {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <video autoplay loop muted class="back-video">
+            <source src="https://cdn.pixabay.com/video/2016/11/04/6266-190550868_large.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <header>
+        <nav>
+            <div class="navbar-container">
+                <div class="logo">SVS Restaurant</div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="contact.html" class="active">Login/Register</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="auth-container">
+        <div class="auth-box" id="login-box">
+            <h2>Login</h2>
+            <form id="login-form">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" onclick="showSignup()">Sign Up</a></p>
+        </div>
+
+        <div class="auth-box" id="signup-box">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+            <p>Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
+        </div>
+    </section>
+
+    <script>
+        function showSignup() {
+            document.getElementById('login-box').style.display = 'none';
+            document.getElementById('signup-box').style.display = 'block';
+        }
+
+        function showLogin() {
+            document.getElementById('signup-box').style.display = 'none';
+            document.getElementById('login-box').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
